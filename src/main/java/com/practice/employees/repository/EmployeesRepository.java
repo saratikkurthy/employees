@@ -12,6 +12,9 @@ public interface EmployeesRepository extends JpaRepository<Employees, Integer> {
     @Query("SELECT EMP FROM Employees EMP WHERE EMP.firstName = :firstName")
     List<Employees> findByFirstName(@Param("firstName") String firstName);
 
+    @Query("SELECT EMP FROM Employees EMP WHERE EMP.lastName = :lastName")
+    List<Employees> findByLastName(@Param("lastName") String lastName);
+
     @Query("SELECT EMP FROM Employees EMP WHERE EMP.deleted = :deleted")
     List<Employees> findByDeleted(@Param("deleted") int deleted);
 

@@ -23,8 +23,11 @@ public class EmployeesService {
 
     public List<Employees> getByFirstName(String firstName) {
         return employeesRepository.findByFirstName(firstName);
-
     }
+    public List<Employees> getByLastName(String lastName) {
+        return employeesRepository.findByLastName(lastName);
+    }
+
 
     public List<Employees> listByDeleted(int deleted) {
         return employeesRepository.findByDeleted(deleted);

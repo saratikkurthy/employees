@@ -37,6 +37,16 @@ public class EmployeesController {
         }
     }
 
+    @GetMapping("/findByLastName/{lastName}")
+    public ResponseEntity<List<Employees>> getByLasttName(@PathVariable("lastName") String lastName) {
+        try {
+            List<Employees> findByFirstName = employeesService.getByLastName(lastName);
+            return new ResponseEntity<List<Employees>>(findByFirstName, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<List<Employees>>(HttpStatus.EXPECTATION_FAILED);
+        }
+    }
+
     @GetMapping("/findActive")
     public ResponseEntity<List<Employees>> getByFirstName() {
         try {
